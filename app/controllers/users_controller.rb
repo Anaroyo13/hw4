@@ -7,7 +7,10 @@ class UsersController < ApplicationController
     @user["username"] = params["username"]
     @user["email"] = params["email"]
     @user["password"] = params["password"]
-    @user.save
-    redirect_to "/"
+      if @user.save
+      redirect_to "/login"
+    else
+      redirect_to "/signup"
+    end
   end
 end
