@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   before_action :current_user
+  skip_forgery_protection
 
   def current_user
     if session["user_id"] != nil
